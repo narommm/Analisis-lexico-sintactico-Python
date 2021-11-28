@@ -91,6 +91,13 @@ t_LLAIZQ = r'{'
 t_LLADER = r'}'
 t_COMDOB = r'\"'
 
+def t_INT(t):
+    r'Int'
+    return t
+
+def t_STRING(t):
+    r'String'
+    return t
 
 def t_SINO(t):
     r'else'

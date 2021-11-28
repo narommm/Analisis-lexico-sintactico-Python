@@ -11,8 +11,8 @@ precedence = (
     ('left', 'MULT', 'DIV'),
     ('right', 'UMINUS'),
     ('right', 'PUNTOCOMA'),
-    ('left', 'IDENTIFICADOR'),
-    ('left','FOR')
+    ('left', 'IDENTIFICADOR', 'INT', 'STRING'),
+    ('left','PARA'),
 )
 nombres = {}
 
@@ -129,6 +129,7 @@ def p_expresion_for(t):
     '''
     expresion: PARA PARIZQ INT IDENTIFICADOR ASIGNAR ENTERO PUNTOCOMA IDENTIFICADOR MENORQUE ENTERO PUNTOCOMA IDENTIFICADDOR SUMA SUMA PARDER LLAIZQ
     '''
+    t[0] = ('for', t[6], t[10])
 
 def p_expression_if(t):
     '''
@@ -136,12 +137,23 @@ def p_expression_if(t):
                 | SI PARIZQ IDENTIFICADOR MENORQUE ENTERO PARDER
                 | SI PARIZQ IDENTIFICADOR IGUALQUE ENTERO PARDER
     '''
+    if t[4] == ">":
+        t[0] = t[3] > t[5]
+    elif t[4] == "<":
+        t[0] = t[3] < t[5]
+    elif t[4] == "==":
+        t[0] =  t[3] == t[5]
 
+        
 def p_expression_array(t):
     '''
-    expression  :   INT IDENTIFICADOR CORIZQ ENTERO CORDER ASIGNAR LLAIZQ ENTERO COMA ENTERO COMA ENTERO COMA ENTERO LLADER PUNTOCOMA
-                |   STRING IDENTIFICADOR CORIZQ ENTERO CORDER ASIGNAR LLAIZQ CDOBLE CADENA CDOBLE COMA CDOBLE CADENA CDOBLE COMA CDOBLE CADENA CDOBLE LLADER PUNTOCOMA
+    expression  :   INT IDENTIFICADOR CORIZQ 4 CORDER ASIGNAR LLAIZQ ENTERO COMA ENTERO COMA ENTERO COMA ENTERO LLADER PUNTOCOMA
+                |   STRING IDENTIFICADOR CORIZQ 3 CORDER ASIGNAR LLAIZQ CDOBLE CADENA CDOBLE COMA CDOBLE CADENA CDOBLE COMA CDOBLE CADENA CDOBLE LLADER PUNTOCOMA
     '''
+    if t[1] == "Int":
+        t[0] = (t[8], t[10] , t[12], t[14])
+    elif t[4] == "String":
+        t[0] = (t[9], t[13] , t[17])
 
 def p_expresion_numero(t):
     'expresion : INT ASIGNAR ENTERO PUNTOCOMA'
