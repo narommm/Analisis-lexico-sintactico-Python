@@ -5,9 +5,13 @@ resultado_lexema = []
 
 reservada = (
     # Palabras Reservadas
-    'INCLUDE',
     'INT',
-    'ENDL',
+    'CHAR',
+    'RETURN',
+    'VOID',
+    'IF',
+    'ELSE',
+    'FOR'
 )
 tokens = reservada + (
     'IDENTIFICADOR',
@@ -84,40 +88,13 @@ t_CORDER = r'\]'
 t_LLAIZQ = r'{'
 t_LLADER = r'}'
 t_COMDOB = r'\"'
+t_FOR = r'for'
 
 
 
 def t_INCLUDE(t):
-    r'include'
-    return t
-
-def t_USING(t):
-    r'using'
-    return t
-
-def t_NAMESPACE(t):
-    r'namespace'
-    return t
-
-def t_STD(t):
-    r'std'
-    return t
-
-def t_COUT(t):
-    r'cout'
-    return t
-
-def t_CIN(t):
-    r'cin'
-    return t
-
-def t_GET(t):
-    r'get'
-    return t
-
-def t_ENDL(t):
-    r'endl'
-    return t
+    r'for'
+    return 
 
 def t_SINO(t):
     r'else'

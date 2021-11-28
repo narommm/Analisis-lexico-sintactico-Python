@@ -11,7 +11,8 @@ precedence = (
     ('left', 'MULT', 'DIV'),
     ('right', 'UMINUS'),
     ('right', 'PUNTOCOMA'),
-    ('left', 'IDENTIFICADOR')
+    ('left', 'IDENTIFICADOR'),
+    ('left','FOR')
 )
 nombres = {}
 
@@ -124,10 +125,13 @@ def p_expresion_booleana(t):
     elif t[3] == "!":
         t[0] =  t[2] is not t[4]
 
-
+def p_expresion_if(t):
+    '''
+        expresion: FOR PARIZQ INT IDENTIFICADOR ASIGNAR ENTERO PUNTOCOMA IDENTIFICADOR MENORQUE ENTERO PUNTOCOMA IDENTIFICADDOR SUMA SUMA PARDER LLAIZQ
+    '''
 
 def p_expresion_numero(t):
-    'expresion : ENTERO'
+    'expresion : INT ASIGNAR ENTERO PUNTOCOMA'
     t[0] = t[1]
 
 def p_expresion_cadena(t):
