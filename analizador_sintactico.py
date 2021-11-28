@@ -10,11 +10,15 @@ precedence = (
     ('left', 'SUMA', 'RESTA'),
     ('left', 'MULT', 'DIV'),
     ('right', 'UMINUS'),
+    ('right', 'PUNTOCOMA'),
+    ('left', 'IDENTIFICADOR')
 )
 nombres = {}
 
 def p_declaracion_asignar(t):
-    'declaracion : IDENTIFICADOR ASIGNAR expresion PUNTOCOMA'
+    '''
+        expresion   :   IDENTIFICADOR ASIGNAR expresion PUNTOCOMA
+    '''
     nombres[t[1]] = t[3]
 
 def p_declaracion_expr(t):

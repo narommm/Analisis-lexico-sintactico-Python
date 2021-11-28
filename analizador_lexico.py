@@ -6,15 +6,6 @@ resultado_lexema = []
 reservada = (
     # Palabras Reservadas
     'INCLUDE',
-    'USING',
-    'NAMESPACE',
-    'STD',
-    'COUT',
-    'CIN',
-   'GET',
-   'CADENA',
-  'RETURN',
-   'VOID',
     'INT',
     'ENDL',
 )
@@ -30,15 +21,15 @@ tokens = reservada + (
     'POTENCIA',
     'MODULO',
 
-   'MINUSMINUS',
-   'PLUSPLUS',
+    'MINUSMINUS',
+    'PLUSPLUS',
 
     #Condiones
-   'SI',
+    'SI',
     'SINO',
     #Ciclos
-   'MIENTRAS',
-   'PARA',
+    'MIENTRAS',
+    'PARA',
     #logica
     'AND',
     'OR',
@@ -72,7 +63,6 @@ tokens = reservada + (
 t_SUMA = r'\+'
 t_RESTA = r'-'
 t_MINUSMINUS = r'\-\-'
-# t_PUNTO = r'\.'
 t_MULT = r'\*'
 t_DIV = r'/'
 t_MODULO = r'\%'
