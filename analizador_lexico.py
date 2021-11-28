@@ -6,7 +6,7 @@ resultado_lexema = []
 reservada = (
     # Palabras Reservadas
     'INT',
-    'CHAR',
+    'STRING',
     'RETURN',
     'VOID',
     'IF',
@@ -57,6 +57,7 @@ tokens = reservada + (
     # Otros
     'PUNTOCOMA',
     'COMA',
+    'CDOBLE',
     'COMDOB',
     'MAYORDER', #>>
     'MAYORIZQ', #<<
@@ -81,6 +82,7 @@ t_MENORQUE = r'<'
 t_MAYORQUE = r'>'
 t_PUNTOCOMA = ';'
 t_COMA = r','
+t_CDOBLE = r'"'
 t_PARIZQ = r'\('
 t_PARDER = r'\)'
 t_CORIZQ = r'\['
@@ -88,13 +90,7 @@ t_CORDER = r'\]'
 t_LLAIZQ = r'{'
 t_LLADER = r'}'
 t_COMDOB = r'\"'
-t_FOR = r'for'
 
-
-
-def t_INCLUDE(t):
-    r'for'
-    return 
 
 def t_SINO(t):
     r'else'
