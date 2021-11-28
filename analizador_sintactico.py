@@ -126,35 +126,26 @@ def p_expresion_booleana(t):
         t[0] =  t[2] is not t[4]
 
 def p_expresion_for(t):
+    #for(int i=0; i<3; i++){
     '''
-    expresion: PARA PARIZQ INT IDENTIFICADOR ASIGNAR ENTERO PUNTOCOMA IDENTIFICADOR MENORQUE ENTERO PUNTOCOMA IDENTIFICADDOR SUMA SUMA PARDER LLAIZQ
+    expresion : PARA PARIZQ INT IDENTIFICADOR ASIGNAR ENTERO PUNTOCOMA IDENTIFICADOR MENORQUE ENTERO PUNTOCOMA IDENTIFICADDOR SUMA SUMA PARDER LLAIZQ
     '''
-    t[0] = ('for', t[6], t[10])
 
 def p_expression_if(t):
+    #if(3<5)
     '''
-    expression  : SI PARIZQ IDENTIFICADOR MAYORQUE ENTERO PARDER
-                | SI PARIZQ IDENTIFICADOR MENORQUE ENTERO PARDER
-                | SI PARIZQ IDENTIFICADOR IGUALQUE ENTERO PARDER
+    expression  : SI PARIZQ ENTERO MAYORQUE ENTERO PARDER 
+                | SI PARIZQ ENTERO MENORQUE ENTERO PARDER
+                | SI PARIZQ ENTERO IGUAL ENTERO PARDER
     '''
-    if t[4] == ">":
-        t[0] = t[3] > t[5]
-    elif t[4] == "<":
-        t[0] = t[3] < t[5]
-    elif t[4] == "==":
-        t[0] =  t[3] == t[5]
 
         
 def p_expression_array(t):
     '''
-    expression  :   INT IDENTIFICADOR CORIZQ 4 CORDER ASIGNAR LLAIZQ ENTERO COMA ENTERO COMA ENTERO COMA ENTERO LLADER PUNTOCOMA
-                |   STRING IDENTIFICADOR CORIZQ 3 CORDER ASIGNAR LLAIZQ CDOBLE CADENA CDOBLE COMA CDOBLE CADENA CDOBLE COMA CDOBLE CADENA CDOBLE LLADER PUNTOCOMA
+    expression  :   INT IDENTIFICADOR CORIZQ ENTERO CORDER ASIGNAR LLAIZQ ENTERO COMA ENTERO COMA ENTERO COMA ENTERO LLADER PUNTOCOMA
+                
     '''
-    if t[1] == "Int":
-        t[0] = (t[8], t[10] , t[12], t[14])
-    elif t[4] == "String":
-        t[0] = (t[9], t[13] , t[17])
-
+#|   STRING IDENTIFICADOR CORIZQ ENTERO CORDER ASIGNAR LLAIZQ CDOBLE CADENA CDOBLE COMA CDOBLE CADENA CDOBLE COMA CDOBLE CADENA CDOBLE LLADER PUNTOCOMA
 def p_expresion_numero(t):
     'expresion : INT ASIGNAR ENTERO PUNTOCOMA'
     t[0] = t[1]

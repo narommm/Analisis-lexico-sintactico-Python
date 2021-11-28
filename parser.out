@@ -12,17 +12,12 @@ Unused terminals:
     GET
     PARA
     COMA
-    NAMESPACE
     RETURN
-    INCLUDE
-    USING
     MAYORIZQ
     MIENTRAS
     SI
-    CIN
-    STD
-    COUT
     INT
+    STRING
     PLUSPLUS
 
 Grammar
@@ -61,6 +56,7 @@ Rule 30    expresion -> PARIZQ expresion NOT expresion PARDER
 Rule 31    expresion -> ENTERO
 Rule 32    expresion -> COMDOB expresion COMDOB
 Rule 33    expresion -> IDENTIFICADOR
+
 
 Terminals, with rules where they appear
 

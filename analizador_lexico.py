@@ -11,7 +11,7 @@ reservada = (
     'VOID',
     'IF',
     'ELSE',
-    'FOR'
+    'CADENA'
 )
 tokens = reservada + (
     'IDENTIFICADOR',
